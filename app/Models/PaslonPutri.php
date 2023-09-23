@@ -10,6 +10,6 @@ class PaslonPutri extends Model
     use HasFactory;
 
     public $fillable = [
-        'name', 'count_vote'
+        'name', 'count_vote', 'path', 'asal_daerah'
     ];
 }
