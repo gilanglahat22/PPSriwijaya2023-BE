@@ -12,9 +12,9 @@ class PaslonPutriController extends Controller
     public function index(Request $request)
     {
         $data = DB::table('paslon_putris')
-                ->orderBy('name')
+                ->orderBy('count_vote')
                 ->get();
-        
+
         return response()->json($data);
     }
 

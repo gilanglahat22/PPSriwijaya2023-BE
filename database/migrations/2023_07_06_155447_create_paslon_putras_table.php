@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('count_vote')->default(0);
             $table->string('path');
+            $table->float('persentase');
             $table->string('asal_daerah');
             $table->timestamps();
         });
