@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('vouchers', function (Blueprint $table) {
             $table->id();
             $table->string('kode_voucher');
+            $table->integer('nominal');
             $table->boolean('is_used')->default(false);
             $table->timestamps();
         });
