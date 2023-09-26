@@ -36,14 +36,14 @@ class VoucherController extends Controller
     public function update(Request $request, Voucher $voucher)
     {
         $request->validate([
-            'kode_voucher' => 'required|string',
             'is_used' => 'required|boolean',
         ]);
 
-        $voucher->kode_voucher = $request->kode_vouchername;
         $voucher->is_used = $request->is_used;
         $voucher->save();
-        return response()->json(['data' => $voucher]);
+        return response()->json(['data' => $voucher])
+        ->header('Access-Control-Allow-Origin', '*')
+        ->header('Access-Control-Allow-Methods', 'POST');
     }
 
     public function destroy(Voucher $voucher)
