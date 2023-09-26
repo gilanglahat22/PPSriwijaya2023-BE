@@ -18,9 +18,11 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-
+Route::middleware(['cors'])->group(function () {
+    // Route::post('/hogehoge', 'Controller@hogehoge');
+    Route::apiResource('/paslon_putras', PaslonPutraController::class);
+    Route::apiResource('/paslon_putris', PaslonPutriController::class);
+    Route::apiResource('/vote_counts', VoteCountController::class);
+    Route::apiResource('/vouchers', VoucherController::class);
+});
 // Route::apiResource('/paslon_putras', 'PaslonPutrasController');
-Route::apiResource('/paslon_putras', PaslonPutraController::class);
-Route::apiResource('/paslon_putris', PaslonPutriController::class);
-Route::apiResource('/vote_counts', VoteCountController::class);
-Route::apiResource('/vouchers', VoucherController::class);
