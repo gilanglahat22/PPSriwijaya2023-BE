@@ -41,9 +41,7 @@ class VoucherController extends Controller
 
         $voucher->is_used = $request->is_used;
         $voucher->save();
-        return response()->json(['data' => $voucher])
-        ->header('Access-Control-Allow-Origin', '*')
-        ->header('Access-Control-Allow-Methods', 'POST');
+        return response()->json(['data' => $voucher]);
     }
 
     public function destroy(Voucher $voucher)
