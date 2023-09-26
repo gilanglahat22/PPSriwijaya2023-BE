@@ -14,8 +14,8 @@ class VoteCountSeeder extends Seeder
     public function run(): void
     {
         VoteCount::create([
-            'count_vote_men' => 1,
-            'count_vote_girl' => 3,
+            'count_vote_men' => 0,
+            'count_vote_girl' => 0,
         ]);
     }
 }
