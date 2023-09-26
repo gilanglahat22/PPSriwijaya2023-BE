@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vouchers', function (Blueprint $table) {
+        Schema::create('voucher_archives', function (Blueprint $table) {
             $table->id();
             $table->string('kode_voucher');
             $table->integer('nominal');
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vouchers');
+        Schema::dropIfExists('voucher_archives');
     }
 };

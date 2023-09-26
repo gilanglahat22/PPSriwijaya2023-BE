@@ -17,7 +17,6 @@ class VoucherSeeder extends Seeder
             Voucher::create([
                 'kode_voucher' => $this->generateRandomString(7),
                 'nominal' => "10",
-                'is_used' => false,
             ]);
         }
 
@@ -25,7 +24,6 @@ class VoucherSeeder extends Seeder
             Voucher::create([
                 'kode_voucher' => $this->generateRandomString(7),
                 'nominal' => "25",
-                'is_used' => false,
             ]);
         }
 
@@ -33,7 +31,6 @@ class VoucherSeeder extends Seeder
             Voucher::create([
                 'kode_voucher' => $this->generateRandomString(7),
                 'nominal' => "50",
-                'is_used' => false,
             ]);
         }
 
@@ -41,7 +38,6 @@ class VoucherSeeder extends Seeder
             Voucher::create([
                 'kode_voucher' => $this->generateRandomString(7),
                 'nominal' => "100",
-                'is_used' => false,
             ]);
         }
 
@@ -49,7 +45,6 @@ class VoucherSeeder extends Seeder
             Voucher::create([
                 'kode_voucher' => $this->generateRandomString(7),
                 'nominal' => "500",
-                'is_used' => false,
             ]);
         }
     }

@@ -14,15 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
 Route::middleware(['cors'])->group(function () {
-    // Route::post('/hogehoge', 'Controller@hogehoge');
     Route::apiResource('/paslon_putras', PaslonPutraController::class);
     Route::apiResource('/paslon_putris', PaslonPutriController::class);
     Route::apiResource('/vote_counts', VoteCountController::class);
     Route::apiResource('/vouchers', VoucherController::class);
+    Route::apiResource('/voucher_archives', VoucherArchiveController::class);
 });
-// Route::apiResource('/paslon_putras', 'PaslonPutrasController');

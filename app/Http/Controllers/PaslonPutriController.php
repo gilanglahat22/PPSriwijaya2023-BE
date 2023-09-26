@@ -43,16 +43,20 @@ class PaslonPutriController extends Controller
     public function update(Request $request, PaslonPutri $paslonPutri)
     {
         $request->validate([
-            'name' => 'required|string',
             'count_vote' => 'required|integer',
         ]);
 
         $selisih = $request->count_vote - $paslonPutri->count_vote;
-        $paslonPutri->name = $request->name;
         $paslonPutri->count_vote = $request->count_vote;
-        $paslonPutri->save();
         $countPaslon = VoteCount::find(1);
         $countPaslon->count_vote_girl += $selisih;
+        $paslonPutris = PaslonPutri::where('id','!=',$paslonPutri->id)->get();
+        foreach($paslonPutris as $paslon){
+            $paslon->persentase = ($paslon->count_vote*100)/$countPaslon->count_vote_girl;
+            $paslon->save();
+        }
+        $paslonPutri->persentase = ($paslonPutri->count_vote* 100)/$countPaslon->count_vote_girl;
+        $paslonPutri->save();
         $countPaslon->save();
         return response()->json(['data' => $paslonPutri,
                                 'message' => 'Count vote girl now is '. $countPaslon->count_vote_girl]);

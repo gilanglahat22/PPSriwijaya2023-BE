@@ -48,6 +48,11 @@ class PaslonPutraController extends Controller
         $paslonPutra->count_vote = $request->count_vote;
         $countPaslon = VoteCount::find(1);
         $countPaslon->count_vote_men += $selisih;
+        $paslonPutras = PaslonPutra::where('id','!=',$paslonPutra->id)->get();
+        foreach($paslonPutras as $paslon){
+            $paslon->persentase = ($paslon->count_vote*100)/$countPaslon->count_vote_men;
+            $paslon->save();
+        }
         $paslonPutra->persentase = ($paslonPutra->count_vote* 100)/$countPaslon->count_vote_men;
         $paslonPutra->save();
         $countPaslon->save();
